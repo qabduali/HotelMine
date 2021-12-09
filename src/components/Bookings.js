@@ -2,21 +2,21 @@ import React, {useState, Fragment, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EditBook from '../components/EditBookRow';
 import ViewBook from '../components/ViewBookRow';
-import mock from './mock-boockings.json';
 import * as ReactBootStrap from "react-bootstrap";
 import {Table} from 'react-bootstrap';
 import EditBookRow from './EditBookRow';
 import ViewBookRow from './ViewBookRow';
 import UserService from "../services/user.service";
+import data from './mock-bookings.json'
 
 const Bookings = () => {
-    const [books, setBooks] = useState(mock);
+    const [books, setBooks] = useState(data);
     const [editBookId, setEditBookId] = useState(null);
-    // props.match.params.id
+
     useEffect(()=>{
         UserService.getModeratorBoard().then(
             response => {
-                setBooks(response.data);
+                // setBooks(response.data);
             },
             error => {
                 console.log(error);
@@ -47,7 +47,7 @@ const Bookings = () => {
         event.preventDefault();
 
         const fieldName = event.target.getAttribute("name");
-        const fieldValue = event.target.value;
+        const fieldValue = event.target.valueAsNumber;
 
         const newFormData = { ...addFormData };
         newFormData[fieldName] = fieldValue;
@@ -63,8 +63,6 @@ const Bookings = () => {
 
         const newFormData = { ...editFormData };
         newFormData[fieldName] = fieldValue;
-        console.log(fieldValue);
-        console.log(newFormData);
         setEditFormData(newFormData);
     }
 
@@ -81,6 +79,7 @@ const Bookings = () => {
             guest_id: addFormData.guest_id
         }
 
+        UserService.postModeratorBoard(newBook)
         const newBooks = [...books, newBook];
         setBooks(newBooks);
     }
@@ -131,6 +130,7 @@ const Bookings = () => {
         const newBooks = [...books];
 
         const id = books.findIndex((book) => book.booking_id === bookId);
+        UserService.deleteModeratorBoard(books[id].booking_id);
 
         newBooks.splice( id, 1);
         setBooks(newBooks);

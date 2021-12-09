@@ -1,0 +1,20 @@
+[
+    {
+        "booking_id": 1,
+        "guests_num": 3,
+        "from_date": "4/1/2021",
+        "to_date": "8/1/2021",
+        "room_id": 5,
+        "bill": 5000,
+        "guest_id": 5
+    },
+    {
+        "booking_id": 2,
+        "guests_num": 1,
+        "from_date": "5/2/2021",
+        "to_date": "10/2/2021",
+        "room_id": 6,
+        "bill": 5000,
+        "guest_id": 6
+    }
+]

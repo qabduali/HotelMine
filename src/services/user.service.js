@@ -30,6 +30,30 @@ class UserService {
     return axios.get(API_URL + 'mod/booking', { headers: authHeader() });
   }
 
+  postModeratorBoard(data){
+    axios.post(API_URL + 'mod/booking', {
+      booking_id: data.booking_id,
+      guests_num: data.guests_num,
+      from_date: data.from_date,
+      to_date: data.to_date,
+      room_id: data.room_id,
+      bill: data.bill,
+      guest_id: data.guest_id
+    }, { headers: authHeader() })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  }
+
+  deleteModeratorBoard(id){
+    return axios.delete(API_URL + 'mod/booking/' + id, {
+      headers: authHeader(),
+    })
+  }
+
   getAdminBoard() {
     return axios.get(API_URL + 'admin/employees', { headers: authHeader() });
   }

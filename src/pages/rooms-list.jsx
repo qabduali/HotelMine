@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Box, Button, Input, Text} from "@chakra-ui/react";
+import {Box, Input, Text} from "@chakra-ui/react";
 import {
     Modal,
     ModalOverlay,
@@ -14,6 +14,7 @@ import { Select } from '@chakra-ui/react';
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import UserService from "../services/user.service";
+import {Button} from "react-bootstrap";
 
 const testData = []
 
@@ -143,7 +144,7 @@ export const RoomsList = (props) => {
   return (
         <Box
             backgroundColor={"#dfe6e9"}
-            height={"calc(100vh - 60px)"}
+            // height={"calc(100vh - 60px)"}
             width={"100%"}
             display={"flex"}
             flexDirection={"column"}

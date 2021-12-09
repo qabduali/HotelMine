@@ -3,9 +3,10 @@ import EditRow from '../components/EditRow';
 import ReadOnlyRow from '../components/ReadOnlyRow';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as ReactBootStrap from "react-bootstrap";
-import {Table} from 'react-bootstrap';
+import {Button, Table, Form} from 'react-bootstrap';
 import {Box} from "@chakra-ui/react";
 import UserService from "../services/user.service";
+
 
 
 function Manager({data}) {
@@ -142,16 +143,34 @@ function Manager({data}) {
         <div>
             <div className="container">
                 <h3>Add an employee</h3>
-                <form onSubmit={handleAddFormSubmit}>
-                    <input type="text" name="employee_name" placeholder="Employee Name" required onChange={handleAddFormChange}></input>
-                    <input type="text" name="employee_surname" placeholder="Employee Surname" required onChange={handleAddFormChange}></input>
-                    <input type="number" name="hotel_id" placeholder="Hotel ID" required onChange={handleAddFormChange}></input>
-                    <input type="number" name="hours" placeholder="Hours" required onChange={handleAddFormChange}></input>
-                    <input type="text" name="position" placeholder="Position" required onChange={handleAddFormChange}></input>
-                    <input type="number" name="salary" placeholder="Salary" required onChange={handleAddFormChange}></input>
-                    <button type="submit"> Add </button>
-                </form>
-            <div className="table">
+                <Form onSubmit={handleAddFormSubmit}>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Employee Name</Form.Label>
+                        <Form.Control name = "employee_name" type="text" placeholder="Employee Name" required onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Employee Surname</Form.Label>
+                        <Form.Control name = "employee_surname" type="text" placeholder="Employee Surname" required onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Hotel ID</Form.Label>
+                        <Form.Control name = "hotel_id" type="number" placeholder="Hotel ID" required onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Hours</Form.Label>
+                        <Form.Control name = "hours" type="number" placeholder="hours" required onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Position</Form.Label>
+                        <Form.Control name = "position" type="text" placeholder="Position" required onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Salary</Form.Label>
+                        <Form.Control name = "salary" type="number" placeholder="Salary" required onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Button type="submit" size="lg"> Add </Button>
+                </Form>
+                <div className="table">
             <form onSubmit={handleEditFormSubmit}>
                 
             <Table striped bordered hover>
