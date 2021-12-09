@@ -1,0 +1,20 @@
+[
+    {
+        "employee_id": 2,
+        "employee_name": "adil",
+        "employee_surname": "rakha", 
+        "hotel_id": 3948,
+        "hours": 12,
+        "position": "huan",
+        "salary": 200
+    },
+    {
+        "employee_id": 7,
+        "employee_name": "adika",
+        "employee_surname": "rakhaliyev", 
+        "hotel_id": 394,
+        "hours": 5,
+        "position": "guan",
+        "salary": 250
+    }
+]
