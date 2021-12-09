@@ -24,11 +24,13 @@ const Search = () => {
 
     return (
         <div className='ui container'>
+            <br/>
             <h1 style={{fontSize: '48px'}}>Hotels</h1>
-            <div className="ui icon input" style={styles}>
-                <i className="search icon"></i>
-                    <input type="text" placeholder="Search..."/>
-            </div>
+            <br/>
+            {/*<div className="ui icon input" style={styles}>*/}
+            {/*    <i className="search icon"></i>*/}
+            {/*        <input type="text" placeholder="Search..."/>*/}
+            {/*</div>*/}
             <MainContent hotelData={data}></MainContent>
         </div>
     )

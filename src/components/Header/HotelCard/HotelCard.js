@@ -22,15 +22,24 @@ const HotelCard = (props) => {
                     </div>
                 </div>
                 <div className="extra content">
+                    <div className="description">
+                        <p>Address</p>
+                    </div>
                     <div className="right floated author">
                         {props.hotelAddress}
                     </div>
                 </div>
                 <div className="extra content">
+                    <div className="description">
+                        <p>Contact Numbers</p>
+                    </div>
                         {props.hotelNumbers.map((number)=>(
-                            <div className="right floated author">
-                            {number.phone_number}
-                            </div>
+                            <>
+                                <div className="right floated author">
+                                {number.phone_number}
+                                </div>
+                                <br/>
+                            </>
                         ))}
                 </div>
             </div>

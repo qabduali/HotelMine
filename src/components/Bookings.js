@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import EditBook from '../components/EditBookRow';
 import ViewBook from '../components/ViewBookRow';
 import * as ReactBootStrap from "react-bootstrap";
-import {Table} from 'react-bootstrap';
+import {Button, Form, Table} from 'react-bootstrap';
 import EditBookRow from './EditBookRow';
 import ViewBookRow from './ViewBookRow';
 import UserService from "../services/user.service";
@@ -47,7 +47,7 @@ const Bookings = () => {
         event.preventDefault();
 
         const fieldName = event.target.getAttribute("name");
-        const fieldValue = event.target.valueAsNumber;
+        const fieldValue = event.target.value;
 
         const newFormData = { ...addFormData };
         newFormData[fieldName] = fieldValue;
@@ -138,21 +138,46 @@ const Bookings = () => {
     return (
         <div>
             <div className="container">
+                <br/>
                 <h3>Add a Booking</h3>
-                <form onSubmit={handleAddFormSubmit}>
-                    <input type="number" name="booking_id" placeholder="Booking ID" required onChange={handleAddFormChange}></input>
-                    <input type="number" name="guests_num" placeholder="Guests Num" required onChange={handleAddFormChange}></input>
-                    <input type="date" name="from_date" placeholder="From Date" required onChange={handleAddFormChange}></input>
-                    <input type="date" name="to_date" placeholder="To Date" required onChange={handleAddFormChange}></input>
-                    <input type="number" name="room_id" placeholder="Room ID" required onChange={handleAddFormChange}></input>
-                    <input type="number" name="bill" placeholder="Bill" required onChange={handleAddFormChange}></input>
-                    <input type="number" name="guest_id" placeholder="Guest ID" required onChange={handleAddFormChange}></input>
-                    <button type="submit"> Add </button>
-                </form>
+
+                <Form onSubmit={handleAddFormSubmit}>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Booking ID</Form.Label>
+                        <Form.Control name = "booking_id" type="number" placeholder="Booking ID" onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Guests Number</Form.Label>
+                        <Form.Control type="number" name="guests_num" placeholder="Guests Num" required onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>From Date</Form.Label>
+                        <Form.Control type="date" name="from_date" placeholder="From Date" required onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>To Date</Form.Label>
+                        <Form.Control type="date" name="to_date" placeholder="To Date" required onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Room ID</Form.Label>
+                        <Form.Control type="number" name="room_id" placeholder="Room ID" required onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Bill</Form.Label>
+                        <Form.Control type="number" name="bill" placeholder="Bill" required onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Guest ID</Form.Label>
+                        <Form.Control type="number" name="guest_id" placeholder="Guest ID" required onChange={handleAddFormChange}></Form.Control>
+                    </Form.Group>
+                    <Button type="submit" size="lg"> Add </Button>
+
+                </Form>
+                <br/>
                 <div className="table">
                     <form onSubmit={handleEditFormSubmit}>
 
-                        <Table striped bordered hover>
+                        <Table striped bordered hover responsive>
                             <thead>
                             <tr>
                                 <th>Booking ID</th>

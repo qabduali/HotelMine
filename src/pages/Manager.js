@@ -141,6 +141,7 @@ function Manager({data}) {
 
     return (
         <div>
+            <br/>
             <div className="container">
                 <h3>Add an employee</h3>
                 <Form onSubmit={handleAddFormSubmit}>
@@ -172,8 +173,8 @@ function Manager({data}) {
                 </Form>
                 <div className="table">
             <form onSubmit={handleEditFormSubmit}>
-                
-            <Table striped bordered hover>
+                <br/>
+            <Table striped bordered hover responsive>
                 <thead>
                     <tr>
                         <th>First Name</th>
